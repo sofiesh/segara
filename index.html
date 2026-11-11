@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Segara – dyk djupare</title>
+  <meta name="description" content="Segara AB är ett konsultbolag och produktbolag som bygger hållbara digitala lösningar och hållbara arbetssätt – värdestyrt och med tillit i teamen.">
+  <meta name="theme-color" content="#0f6b7a">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#innehall" data-i18n="skip">Hoppa till innehållet</a>
+
+  <header class="top">
+    <a class="logo" href="#yta" aria-label="Segara">segara</a>
+    <nav data-i18n-aria="nav.aria" aria-label="Huvudmeny">
+      <a href="#kompass" data-i18n="nav.kompass">Kompassen</a>
+      <a href="#kurs" data-i18n="nav.kurs">Sätt kurs</a>
+      <a href="#besattning" data-i18n="nav.crew">Besättningen</a>
+      <a href="#loggbok" data-i18n="nav.log">Loggbok</a>
+      <a href="#flaskpost" data-i18n="nav.contact">Kontakt</a>
+      <span class="lang" role="group" data-i18n-aria="lang.aria" aria-label="Språk">
+        <button type="button" data-lang="sv" lang="sv" aria-pressed="true">SV</button>
+        <span aria-hidden="true">/</span>
+        <button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
+      </span>
+    </nav>
+  </header>
+
+  <!-- Djupmätare: visar hur långt ner i sidan man har dykt -->
+  <aside class="gauge" aria-hidden="true">
+    <div class="gauge-body">
+      <div class="gauge-track"><div class="gauge-fill" id="gaugeFill"></div></div>
+      <div class="diver" id="diver">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2.5" y="10" width="16" height="8" rx="4" fill="currentColor" fill-opacity=".12"/>
+          <path d="M8.5 10V8.2a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1V10"/>
+          <path d="M11 7.2V4h3"/>
+          <circle cx="7.5" cy="14" r="1.2"/>
+          <circle cx="12" cy="14" r="1.2"/>
+          <path d="M18.5 14H20M21 11.5v5"/>
+        </svg>
+      </div>
+    </div>
+    <div class="gauge-read"><span id="depth">0</span> m</div>
+  </aside>
+
+  <main id="innehall">
+
+    <section class="layer hero" id="yta">
+      <canvas id="waves" aria-hidden="true"></canvas>
+      <div class="wrap">
+        <p class="eyebrow" data-i18n="hero.eyebrow"></p>
+        <h1 data-i18n="hero.h1"></h1>
+        <p class="lead" data-i18n="hero.lead"></p>
+        <a class="dive" href="#kompass"><span data-i18n="hero.cta"></span> <span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
+
+    <section class="layer" id="kompass">
+      <div class="wrap">
+        <p class="eyebrow" data-i18n="k.eyebrow"></p>
+        <h2 data-i18n="k.h2"></h2>
+        <div class="cards">
+          <article class="card"><h3 data-i18n="k.trust"></h3><p data-i18n="k.trust.p"></p></article>
+          <article class="card"><h3 data-i18n="k.sust"></h3><p data-i18n="k.sust.p"></p></article>
+          <article class="card"><h3 data-i18n="k.val"></h3><p data-i18n="k.val.p"></p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="layer" id="tva">
+      <div class="wrap two">
+        <div>
+          <p class="eyebrow" data-i18n="s.eyebrow"></p>
+          <h2 data-i18n="s.h2"></h2>
+        </div>
+        <div class="streams">
+          <div class="stream"><h3 data-i18n="s.cons"></h3><p data-i18n="s.cons.p"></p></div>
+          <div class="stream"><h3 data-i18n="s.prod"></h3><p data-i18n="s.prod.p"></p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="layer" id="kurs">
+      <div class="wrap">
+        <p class="eyebrow" data-i18n="c.eyebrow"></p>
+        <h2 data-i18n="c.h2"></h2>
+        <p class="lead small" data-i18n="c.lead"></p>
+        <div class="chips" role="group" data-i18n-aria="c.aria">
+          <button class="chip" data-key="produkt" data-i18n="c.produkt"></button>
+          <button class="chip" data-key="team" data-i18n="c.team"></button>
+          <button class="chip" data-key="hallbar" data-i18n="c.hallbar"></button>
+          <button class="chip" data-key="flode" data-i18n="c.flode"></button>
+          <button class="chip" data-key="synlig" data-i18n="c.synlig"></button>
+        </div>
+        <div class="answer" id="answer" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="layer" id="besattning">
+      <div class="wrap">
+        <p class="eyebrow" data-i18n="crew.eyebrow"></p>
+        <h2 data-i18n="crew.h2"></h2>
+        <div class="crew">
+          <article class="person">
+            <h3>Pepyn</h3>
+            <p class="role" data-i18n="crew.pepyn.role"></p>
+            <p data-i18n="crew.pepyn.p"></p>
+          </article>
+          <article class="person">
+            <h3>Sofie</h3>
+            <p class="role" data-i18n="crew.sofie.role"></p>
+            <p data-i18n="crew.sofie.p"></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="layer" id="loggbok">
+      <div class="wrap">
+        <p class="eyebrow" data-i18n="log.eyebrow"></p>
+        <h2 data-i18n="log.h2"></h2>
+        <ol class="log" id="log"></ol>
+      </div>
+    </section>
+
+    <section class="layer seabed" id="flaskpost">
+      <div class="wrap two">
+        <div>
+          <p class="eyebrow" data-i18n="f.eyebrow"></p>
+          <h2 data-i18n="f.h2"></h2>
+          <p class="lead small" data-i18n="f.lead"></p>
+        </div>
+        <form id="contact" autocomplete="on">
+          <label><span data-i18n="f.name"></span> <input name="name" required></label>
+          <label><span data-i18n="f.email"></span> <input type="email" name="email" required></label>
+          <label><span data-i18n="f.msg"></span> <textarea name="msg" rows="5" required></textarea></label>
+          <button type="submit" data-i18n="f.send"></button>
+          <p class="muted" id="formNote" aria-live="polite"></p>
+        </form>
+      </div>
+      <footer class="wrap foot">
+        <span>© <span id="year"></span> <span data-i18n="foot.copy"></span></span>
+        <span data-i18n="foot.note"></span>
+      </footer>
+    </section>
+  </main>
+
+  <script src="i18n.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
